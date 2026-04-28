@@ -1,6 +1,6 @@
-FROM golang:1.25.5-alpine3.23 AS build
+FROM golang:1.26.2-alpine3.23 AS build
 
-LABEL site="ystv-stv-web"
+LABEL site="nouse-stv-web"
 LABEL stage="builder"
 LABEL author="Liam Burnand"
 

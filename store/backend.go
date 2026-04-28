@@ -1,7 +1,7 @@
 package store
 
 import (
-	"github.com/ystv/stv-web/storage"
+	"github.com/yorknouse/stv-web/storage"
 )
 
 type Backend interface {

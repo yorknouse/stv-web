@@ -7,12 +7,12 @@ import (
 	"strconv"
 
 	"github.com/labstack/echo/v4"
-	"github.com/ystv/stv-web/mail"
+	"github.com/yorknouse/stv-web/mail"
 
-	"github.com/ystv/stv-web/storage"
-	"github.com/ystv/stv-web/store"
-	"github.com/ystv/stv-web/templates"
-	"github.com/ystv/stv-web/voting"
+	"github.com/yorknouse/stv-web/storage"
+	"github.com/yorknouse/stv-web/store"
+	"github.com/yorknouse/stv-web/templates"
+	"github.com/yorknouse/stv-web/voting"
 )
 
 type AdminRepo struct {
@@ -412,10 +412,10 @@ func (r *AdminRepo) sendEmailThread(voters []*storage.Voter, election *storage.E
 			}
 
 			file := mail.Mail{
-				Subject: "YSTV - Vote for (" + election.GetName() + ")",
+				Subject: "Nouse - Vote for (" + election.GetName() + ")",
 				Tpl:     r.controller.Template.RenderEmail(templates.EmailTemplate),
 				To:      voter.GetEmail(),
-				From:    "YSTV Elections <stv@ystv.co.uk>",
+				From:    "Nouse Elections <no-reply@nouse.co.uk>",
 				TplData: struct {
 					Election struct {
 						Name        string

@@ -10,10 +10,10 @@ import (
 	"github.com/joho/godotenv"
 	_ "golang.org/x/crypto/x509roots/fallback" // CA bundle for FROM Scratch
 
-	"github.com/ystv/stv-web/controllers"
-	"github.com/ystv/stv-web/mail"
-	"github.com/ystv/stv-web/store"
-	"github.com/ystv/stv-web/structs"
+	"github.com/yorknouse/stv-web/controllers"
+	"github.com/yorknouse/stv-web/mail"
+	"github.com/yorknouse/stv-web/store"
+	"github.com/yorknouse/stv-web/structs"
 )
 
 var (
@@ -150,7 +150,7 @@ func main() {
 
 			mailer.Defaults = mail.Defaults{
 				DefaultTo:   config.Mail.DefaultTo,
-				DefaultFrom: "YSTV STV <stv@ystv.co.uk>",
+				DefaultFrom: "Nouse Elections <no-reply@nouse.co.uk>",
 			}
 		}
 	}
@@ -185,7 +185,7 @@ func main() {
 		Mailer: mailer,
 	})
 
-	log.Printf("YSTV STV voting site: %s, commit: %s, version: %s\n", config.Server.Address, Commit, Version)
+	log.Printf("Nouse STV voting site: %s, commit: %s, version: %s\n", config.Server.Address, Commit, Version)
 
 	err = router1.Start()
 	if err != nil {

@@ -1,6 +1,6 @@
-module github.com/ystv/stv-web
+module github.com/yorknouse/stv-web
 
-go 1.25.5
+go 1.26.2
 
 require (
 	github.com/BurntSushi/toml v1.5.0

@@ -6,9 +6,9 @@ import (
 
 	"github.com/labstack/echo/v4"
 
-	"github.com/ystv/stv-web/storage"
-	"github.com/ystv/stv-web/store"
-	"github.com/ystv/stv-web/templates"
+	"github.com/yorknouse/stv-web/storage"
+	"github.com/yorknouse/stv-web/store"
+	"github.com/yorknouse/stv-web/templates"
 )
 
 type RegistrationRepo struct {

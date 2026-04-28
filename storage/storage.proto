@@ -1,6 +1,6 @@
 syntax = "proto3";
 package storage;
-option go_package = "github.com/ystv/stv-web/storage";
+option go_package = "github.com/yorknouse/stv-web/storage";
 
 message STV {
     repeated Ballot ballots = 1;
