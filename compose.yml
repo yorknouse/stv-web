@@ -1,0 +1,34 @@
+services:
+  caddy:
+    image: caddy:latest
+    container_name: caddy
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - caddy:/data
+      - ./docker/Caddyfile:/etc/caddy/Caddyfile
+      - ./ssl/ssl.key:/etc/ssl/private/ssl.key
+      - ./ssl/ssl.crt:/etc/ssl/certs/ssl.crt
+      - ./ssl/origin-pull-ca.pem:/etc/ssl/certs/origin-pull-ca.pem
+    environment:
+      ACME_AGREE: 'true'
+    depends_on:
+      - stv-container
+  stv-container:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: stv-container
+    restart: always
+    volumes:
+      - ./db:/db
+      - ./toml:/toml
+    expose:
+      - 6691
+volumes:
+  caddy:
+    external: true
+    name: website_caddy
+

@@ -1,0 +1,21 @@
+{
+    # Top level config and options for Caddy
+    http_port 80
+    https_port 443
+    admin off
+
+    # TLS Options
+    email tech@nouse.co.uk #Used to generate Letsencrypt certificates
+}
+elections.nouse.co.uk {
+    tls /etc/ssl/certs/ssl.crt /etc/ssl/private/ssl.key {
+        client_auth {
+            mode require_and_verify
+            trust_pool file {
+                pem_file /etc/ssl/certs/origin-pull-ca.pem
+            }
+        }
+    }
+    reverse_proxy stv-container:3000
+    encode gzip
+}
