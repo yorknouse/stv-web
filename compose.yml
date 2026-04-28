@@ -29,6 +29,4 @@ services:
       - 6691
 volumes:
   caddy:
-    external: true
-    name: website_caddy
 
